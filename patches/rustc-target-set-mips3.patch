@@ -1,0 +1,14 @@
+diff --git a/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs b/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs
+index 515473fbabc..fa3c6875964 100644
+--- a/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs
++++ b/compiler/rustc_target/src/spec/targets/mips64el_unknown_linux_gnuabi64.rs
+@@ -15,8 +15,8 @@ pub fn target() -> Target {
+         options: TargetOptions {
+             abi: "abi64".into(),
+             // NOTE(mips64r2) matches C toolchain
+-            cpu: "mips64r2".into(),
+-            features: "+mips64r2,+xgot".into(),
++            cpu: "mips3".into(),
++            features: "+mips3,+xgot".into(),
+             max_atomic_width: Some(64),
+             mcount: "_mcount".into(),
