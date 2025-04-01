@@ -9,7 +9,7 @@ A NixOS 25.05 Snapshot specifically designed for [Lemote 8089-series notebooks](
 ## Pre-installed Packages
 
 ```nix
-# configuration.nix
+# configs/common.nix
 environment.systemPackages = with pkgs; [
     jq
     lm_sensors
@@ -50,3 +50,4 @@ This project builds upon the work of:
 
 - dramforever: https://github.com/dramforever/nixos-loongson2f
 - kusahae: https://zhuanlan.zhihu.com/p/359628282
+- druggo: https://blog.druggo.org
