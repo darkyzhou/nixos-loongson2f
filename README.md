@@ -1,6 +1,6 @@
 # nixos-loongson2f
 
-A NixOS 25.05 Snapshot specifically designed for [Lemote 8089-series notebooks](https://arc.net/l/quote/ixioidcv), tested on the Lemote 8089A model.
+A NixOS 25.05 Snapshot based on Linux 6.6.25 for [Lemote 8089-series notebooks](https://arc.net/l/quote/ixioidcv) and [Lemote 9001/9002 All-in-One PC](https://arc.net/l/quote/smfuhkeo). Tested working on Lemote 8089A and Lemote 9002.
 
 ## Screenshots
 
@@ -32,9 +32,9 @@ environment.systemPackages = with pkgs; [
 
     If you plan to use a USB drive, you may need to replace all occurrences of `(wd0,0)` with `(usb0,0)` in the source and build the image yourself.
 
-3. Boot your notebook.
+3. Boot your notebook or All-in-one PC.
 
-    You may need to update both the EC firmware and PMON bootloader following [kusahae's guide](https://zhuanlan.zhihu.com/p/359628282). The two firmware files mentioned in the guide are also provided in `firmware` folder.
+    For Lemote notebooks, You may need to update both the EC firmware and PMON bootloader following [kusahae's guide](https://zhuanlan.zhihu.com/p/359628282). The two firmware files mentioned in the guide are also provided in `firmware` folder.
 
 4. Log in using the `root` account with the default password `114514`.
 5. Expand the root partition by running `resize2fs /dev/disk/by-label/sakimi-nixos`.

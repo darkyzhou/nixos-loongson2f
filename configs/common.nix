@@ -6,9 +6,6 @@
   rootPartitionLabel,
   ...
 }:
-let
-  sshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINkTXnPtIWvZhWBUFmDrzJu+2+JGD+fmEra91A2HuvDp darkyoooooo@gmail.com";
-in
 {
   system.stateVersion = "25.05";
 
@@ -73,7 +70,6 @@ in
   networking.firewall.logRefusedConnections = false;
 
   services = {
-    gpm.enable = true;
     openssh = {
       enable = true;
       settings = {
@@ -84,20 +80,11 @@ in
     };
   };
 
-  networking.supplicant.wlp0s14f5u4 = {
-    configFile.path = "/var/wpa_supplicant.conf";
-    configFile.writable = true;
-    userControlled.enable = true;
-  };
-
   security.sudo.wheelNeedsPassword = false;
 
   users = {
     mutableUsers = false;
-    users.root = {
-      initialPassword = "114514";
-      openssh.authorizedKeys.keys = [ sshKey ];
-    };
+    users.root.initialPassword = "114514";
   };
 
   services.journald.extraConfig = ''
