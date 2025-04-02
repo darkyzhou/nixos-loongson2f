@@ -21,10 +21,14 @@
             rootPartitionLabel = "sakimi-nixos";
           };
         };
+      mk8089 = extraModules: mkSystem [ ./configs/8089.nix ] ++ extraModules;
+      mk9001 = extraModules: mkSystem extraModules;
     in
     {
-      nixosConfigurations.sakimi_8089 = mkSystem [ ./configs/8089.nix ];
-      nixosConfigurations.sakimi_9001 = mkSystem [ ];
+      lib = { inherit mk8089 mk9001; };
+
+      nixosConfigurations.sakimi_8089 = mk8089 [ ];
+      nixosConfigurations.sakimi_9001 = mk9001 [ ];
 
       packages.x86_64-linux.image_8089 = self.nixosConfigurations.sakimi_8089.config.system.build.image;
       packages.x86_64-linux.image_9001 = self.nixosConfigurations.sakimi_9001.config.system.build.image;
